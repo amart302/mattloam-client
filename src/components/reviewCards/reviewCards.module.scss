@@ -1,0 +1,42 @@
+.review-card{
+    &__header{
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    &__username{
+        font-size: 18px;
+        color: var(--primary-text-color);
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__user-avatar{
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__stars{
+        margin-block: 10px;
+    }
+
+    &__text{
+        font-size: 17px;
+        line-height: 22px;
+        color: var(--secondary-text-color);
+    }
+
+    &:active{
+        cursor: grabbing;
+    }
+}
+
+.review-slide{
+    margin-bottom: 30px;
+    cursor: grab;
+}

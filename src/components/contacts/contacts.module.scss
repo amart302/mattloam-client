@@ -1,0 +1,65 @@
+.contacts{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &__title{
+        margin: 0;
+    }
+
+    &__inner{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    &__group{
+        min-width: 155px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__link{
+        text-decoration: none;
+        color: var(--primary-text-color);
+        transition: all 0.2s;
+
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+
+    &__image-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+    }
+
+    &__image{
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.phone-image-container{
+    background-color: #2F80ED;
+}
+.email-image-container{
+    background-color: #D9D9D9;
+
+    .contacts__image{
+        width: 20px;
+        height: 20px;
+    }
+}
+.whatsApp-image-container{
+    background: linear-gradient(161.77deg, #58D063 12.39%, #28B43E 95.77%);
+}
+.telegram-image-container{
+    background: linear-gradient(180deg, #2AABEE 0%, #229ED9 99.21%);
+}

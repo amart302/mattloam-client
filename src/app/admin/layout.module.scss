@@ -1,0 +1,10 @@
+.layout{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+.main{
+    width: 1200px;
+    margin-inline: auto;
+    padding: 60px;
+}

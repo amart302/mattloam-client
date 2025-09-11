@@ -1,0 +1,229 @@
+.main{
+    &__wrapper{
+        padding: 10px;
+    }
+
+    &__user{
+        max-width: 1140px;
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: var(--primary-box-shadow);
+    }
+
+    &__avatar{
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__info{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+    }
+
+    &__info-group{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    &__info-item{
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding-block: 12px;
+        border-bottom: 1px solid #eaeaea;
+    }
+
+    &__info-label{
+        color: var(--secondary-text-color);
+    }
+
+    &__info-text{
+        word-break: break-all;
+        color: var(--primary-text-color);
+    }
+
+    &__info-actions{
+        display: grid;
+        grid-template-columns: 200px 200px;
+        gap: 16px;
+        margin-top: 16px;
+    }
+
+    &__status{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        border-radius: 4px;
+        font-size: 14px;
+        background-color: #d4edda;
+        color: #155724;
+    }
+
+    &__logout-button{
+        padding: 8px;
+        border: none;
+        background-color: #dc3545;
+        color: white;
+        font-size: 14px;
+        border-radius: 4px;
+        transition: all 0.2s;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+}
+
+.bookings{
+    margin-top: 60px;
+    
+    &__title{
+        font-size: 30px;
+        color: var(--primary-text-color);
+    }
+
+    &__title-indent{
+        margin-bottom: 40px;
+    }
+
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    &__list--3cols{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__empty{
+        min-height: calc(100vh - 714px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+.booking-card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    box-shadow: var(--primary-box-shadow);
+
+    &__image{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    &__info{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+        gap: 8px;
+    }
+
+    &__room-title{
+        font-size: 18px;
+        text-decoration: none;
+        color: var(--primary-text-color);
+        word-break: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    &__info-text{
+        font-size: 14px;
+        color: var(--secondary-text-color);
+    }
+
+    &__actions{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    &__info-status{
+        width: max-content;
+        padding: 8px;
+        border-radius: 6px;
+        font-size: 14px;
+        color: #ffffff;
+    }
+
+    &__info-status--pending{
+        background-color: var(--primary-color);
+    }
+
+    &__info-status--active{
+        background-color: #4CAF50;
+    }
+
+    &__cancel-button{
+        padding: 8px;
+        border: none;
+        background-color: #dc3545;
+        color: white;
+        font-size: 14px;
+        border-radius: 4px;
+        transition: all 0.2s;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+}
+
+@media (max-width: 768px){
+   .main{
+        &__user{
+            max-width: 1140px;
+            flex-direction: column;
+            padding: 10px;
+            box-shadow: none;
+        }
+
+        &__info-group{
+            grid-template-columns: 1fr;
+        }
+
+        &__info-actions{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+   }
+
+   .bookings{
+         &__title{
+            font-size: 24px;
+        }
+
+        &__list--3cols{
+            grid-template-columns: none;
+        }
+   }
+}

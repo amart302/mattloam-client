@@ -1,0 +1,27 @@
+.responsibility-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.responsibility-card{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    box-shadow: var(--primary-box-shadow);
+    border-radius: 6px;
+
+    &__image{
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__text{
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--primary-text-color);
+    }
+}

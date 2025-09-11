@@ -1,0 +1,95 @@
+:root{
+    --primary-color: #F99001;
+    --secondary-color: #216ba5;
+    --primary-background-color: #1a2b5c;
+    --primary-text-color: #2c3642;
+    --secondary-text-color: #757575;
+    --primary-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.parent-modal-window{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 20px);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000c;
+    padding-inline: 10px;
+    z-index: 12;
+}
+
+.loader-parent{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.main{
+    min-height: calc(100vh - 236px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__container{
+        max-width: 1200px;
+        margin-inline: auto;
+        padding-inline: 10px;
+        margin-top: 120px;
+    }
+
+    &__container-title{
+        font-family: var(--font-oswald), sans-serif;
+        font-size: 44px;
+        font-weight: 600;
+        margin-bottom: 40px;
+        color: var(--primary-text-color);
+    }
+}
+
+.margin-top-0{
+    margin-top: 0;
+}
+
+input[type="number"]{
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+    .main{
+        &__container{
+            margin-top: 100px;
+        }
+
+        &__container-title{
+            font-size: 32px;
+        }
+    }
+}

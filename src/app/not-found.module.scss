@@ -1,0 +1,34 @@
+.not-found-parent{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.not-found{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    &__title{
+        font-family: var(--font-oswald), sans-serif;
+        font-size: 44px;
+        font-weight: 600;
+        color: var(--primary-text-color);
+        text-align: center;
+    }
+
+    &__text{
+        color: var(--secondary-text-color);
+        font-size: 18px;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    &__link{
+        font-size: 18px;
+        font-weight: 400;
+    }
+}

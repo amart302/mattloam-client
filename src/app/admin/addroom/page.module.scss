@@ -1,0 +1,217 @@
+.add-room-form{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    &__form-group{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__form-row{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    &__label{
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--primary-text-color);
+    }
+
+    &__input{
+        width: calc(100% - 24px);
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border 0.2s;
+
+        &:focus{
+            outline: none;
+            border-color: var(--primary-color);
+        }
+    }
+
+    &__select{
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        background-color: white;
+        appearance: none;
+        transition: border 0.2s;
+
+        &:focus{
+            outline: none;
+            border-color: var(--primary-color);
+        }
+    }
+
+    &__textarea{
+        width: calc(100% - 24px);
+        min-height: 100px;
+        max-height: 500px;
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        resize: vertical;
+        font-family: inherit;
+        font-size: 16px;
+
+        &:focus{
+            outline: none;
+            border-color: var(--primary-color);
+        }
+    }
+
+    &__add-button,
+    &__remove-button,
+    &__submit-button{
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: opacity 0.2s;
+        cursor: pointer;
+    }
+
+    &__add-button{
+        padding: 14px;
+        background-color: #007bff;
+        color: white;
+        align-self: flex-start;
+
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+
+    &__remove-button{
+        height: 100%;
+        background-color: #ff6b6b;
+        padding: 10px;
+
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+
+    &__submit-button{
+        background-color: var(--primary-color);
+        color: white;
+        font-size: 18px;
+        padding: 12px 20px;
+        margin-top: 10px;
+
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+
+    &__upload-label{
+        height: 240px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #d4d4d4;
+        font-size: 26px;
+        border-radius: 6px;
+        transition: opacity 0.2s;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+
+    &__upload-input{
+        display: none;
+    }
+}
+
+.services-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.services-item{
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    align-items: center;
+    gap: 10px;
+
+    &__meaning{
+        padding-block: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 10px 12px;
+    }
+}
+
+
+.price-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.price-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 40px;
+    align-items: center;
+    gap: 10px;
+
+    &__meaning{
+        padding-block: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 10px 12px;
+    }
+}
+
+.selected-files{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 20px;
+
+    &__item{
+        height: 240px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    &__remove{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        background-color: #ff6b6b;
+        border: none;
+        border-radius: 50%;
+        z-index: 4;
+        cursor: pointer;
+    }
+
+    &__image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.error-message{
+    color: red;
+    font-size: 14px;
+}
