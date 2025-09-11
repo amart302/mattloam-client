@@ -25,7 +25,7 @@ export default function AdminSidebar(){
                 return;
             }
 
-            const response = await axios.get("http://localhost:5000/auth/check", {
+            const response = await axios.get("https://api.mattloam.ru/auth/check", {
                 headers: {
                     Authorization: `Bearer ${ token }`
                 }

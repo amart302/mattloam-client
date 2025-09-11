@@ -24,7 +24,7 @@ export default function Bookings(){
     const getBookings = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get(`http://localhost:5000/bookings`, {
+            const response = await axios.get(`https://api.mattloam.ru/bookings`, {
                 params: {
                     status
                 },
@@ -47,7 +47,7 @@ export default function Bookings(){
     const confirmBooking = async (id) => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.patch(`http://localhost:5000/bookings/confirm/${ id }`, null, {
+            const response = await axios.patch(`https://api.mattloam.ru/bookings/confirm/${ id }`, null, {
                 headers: {
                     Authorization: `Bearer ${ token }`
                 }
@@ -64,7 +64,7 @@ export default function Bookings(){
     const deleteBooking = async (id) => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.delete(`http://localhost:5000/bookings/admin/${ id }`, {
+            const response = await axios.delete(`https://api.mattloam.ru/bookings/admin/${ id }`, {
                 headers: {
                     Authorization: `Bearer ${ token }`
                 }
@@ -119,7 +119,7 @@ export default function Bookings(){
                     {
                         showCards && bookings.map(item => (
                             <div className={ styles["booking-card"] } key={ item.id }>
-                                <Image className={ styles["booking-card__image"] } src={ `http://localhost:5000/media/${ item.Room.mainImage }` } alt="room image" width={ 180 } height={ 110 } />
+                                <Image className={ styles["booking-card__image"] } src={ `https://api.mattloam.ru/media/${ item.Room.mainImage }` } alt="room image" width={ 180 } height={ 110 } />
                                 <div className={ styles["booking-card__content"] }>
                                     <div className={ styles["booking-card__content-wrapper"] }>
                                         <Link className={ styles["booking-card__room-title"] } href={ `/rooms/${ item.roomId }` }>{ item.Room.title }</Link>

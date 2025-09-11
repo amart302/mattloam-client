@@ -34,7 +34,7 @@ export default function EditRoom(){
 
     const getRoom = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/rooms/${ id }`);
+            const response = await axios.get(`https://api.mattloam.ru/rooms/${ id }`);
             setValue("title", response.data.room.title);
             setValue("description", response.data.room.description);
             setValue("guests", response.data.room.guests);
@@ -169,7 +169,7 @@ export default function EditRoom(){
             files.forEach(item => formData.append("files", item));
             
             const token = localStorage.getItem("token");
-            const response = await axios.patch(`http://localhost:5000/rooms/${ id }`, formData, {
+            const response = await axios.patch(`https://api.mattloam.ru/rooms/${ id }`, formData, {
                 headers: {
                     Authorization: `Bearer ${ token }`
                 }
@@ -287,7 +287,7 @@ export default function EditRoom(){
                                     <button className={ styles["selected-files__remove"] } type="button" onClick={ () => deleteExistingFile(index) }>
                                         <RxCross1 size={ 14 } color="#ffffff" />
                                     </button>
-                                    <Image className={ styles["selected-files__image"] } src={ `http://localhost:5000/media/${ item }` } alt="room image" width={ 388 } height={ 240 } />
+                                    <Image className={ styles["selected-files__image"] } src={ `https://api.mattloam.ru/media/${ item }` } alt="room image" width={ 388 } height={ 240 } />
                                 </div>
                             ))
                         }

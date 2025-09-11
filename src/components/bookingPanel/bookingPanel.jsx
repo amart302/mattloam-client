@@ -72,7 +72,7 @@ export default function BookingPanel({ roomId = null, option, blockedDates = nul
                 children
             };
             const token = localStorage.getItem("token");
-            const response = await axios.post("http://localhost:5000/bookings/", formData, {
+            const response = await axios.post("https://api.mattloam.ru/bookings/", formData, {
                 headers: {
                     Authorization: `Bearer ${ token }`
                 }

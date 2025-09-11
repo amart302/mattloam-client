@@ -29,7 +29,7 @@ export default function RoomCardsLarge({ option, bookingParams, chooseRoom }){
 
     const getRooms = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/rooms");
+            const response = await axios.get("https://api.mattloam.ru/rooms");
             
             if(response.data.rooms.length){
                 setRooms(response.data.rooms);
@@ -45,7 +45,7 @@ export default function RoomCardsLarge({ option, bookingParams, chooseRoom }){
     const findRooms = async () => {
         try {
             const { dateOfEntry, departureDate, adults, children } = bookingParams;
-            const response = await axios.get("http://localhost:5000/rooms/find", {
+            const response = await axios.get("https://api.mattloam.ru/rooms/find", {
                 params: {
                     dateOfEntry,
                     departureDate,
@@ -74,7 +74,7 @@ export default function RoomCardsLarge({ option, bookingParams, chooseRoom }){
                 children: children
             };
             const token = localStorage.getItem("token");
-            const response = await axios.post("http://localhost:5000/bookings/", formData, {
+            const response = await axios.post("https://api.mattloam.ru/bookings/", formData, {
                 headers: {
                     Authorization: `Bearer ${ token }`
                 }
@@ -96,7 +96,7 @@ export default function RoomCardsLarge({ option, bookingParams, chooseRoom }){
         
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.delete(`http://localhost:5000/rooms/${ id }`, {
+            const response = await axios.delete(`https://api.mattloam.ru/rooms/${ id }`, {
                 headers: {
                     Authorization: `Bearer ${ token }`
                 }
@@ -132,7 +132,7 @@ export default function RoomCardsLarge({ option, bookingParams, chooseRoom }){
                         showCards && rooms.map((item, index) => (
                             <Link className={ styles["room-card-link"] } href={ `/rooms/${ item.id }` } key={ index }>
                                 <div className={ styles["room-card"] }>
-                                    <Image className={ styles["room-card__image"] } src={ `http://localhost:5000/media/${ item.mainImage }` } alt="room image" width={ 504 } height={ 306 } />
+                                    <Image className={ styles["room-card__image"] } src={ `https://api.mattloam.ru/media/${ item.mainImage }` } alt="room image" width={ 504 } height={ 306 } />
                                     <div className={ styles["room-card__content"] }>
                                         <p className={ styles["room-card__title"] }>{ item.title }</p>
                                         <p className={ styles["room-card__description"] }>{ item.description }</p>

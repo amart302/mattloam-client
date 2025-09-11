@@ -25,7 +25,7 @@ export default function Profile() {
   const getUserData = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/users/profile", {
+      const response = await axios.get("https://api.mattloam.ru/users/profile", {
           headers: {
               Authorization: `Bearer ${ token }`
           }
@@ -46,7 +46,7 @@ export default function Profile() {
   const getUserBookings = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/users/bookings", {
+      const response = await axios.get("https://api.mattloam.ru/users/bookings", {
           headers: {
               Authorization: `Bearer ${ token }`
           }
@@ -67,7 +67,7 @@ export default function Profile() {
   const deleteBooking = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.delete(`http://localhost:5000/bookings/user/${ id }`, {
+      const response = await axios.delete(`https://api.mattloam.ru/bookings/user/${ id }`, {
           headers: {
               Authorization: `Bearer ${ token }`
           }
@@ -141,7 +141,7 @@ export default function Profile() {
               showCards && bookings.map((item, index) => (
                 <div key={ item.id } className={ styles["booking-card"] }>
                   <div className="booking-card__image-container">
-                    <Image className={ styles["booking-card__image"] } src={ `http://localhost:5000/media/${ item.Room.mainImage }` } alt="booking image" width={ 388 } height={ 200} />
+                    <Image className={ styles["booking-card__image"] } src={ `https://api.mattloam.ru/media/${ item.Room.mainImage }` } alt="booking image" width={ 388 } height={ 200} />
                   </div>
                   <div className={ styles["booking-card__info"] }>
                     <Link className={ styles["booking-card__room-title"] } href={ `/rooms/${item.Room.id}` } key={ index }>{ item.Room.title }</Link>

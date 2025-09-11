@@ -45,7 +45,7 @@ export default function AddBooking(){
             };
             
             const token = localStorage.getItem("token");
-            const response = await axios.post("http://localhost:5000/bookings/admin", formData, {
+            const response = await axios.post("https://api.mattloam.ru/bookings/admin", formData, {
                 headers: {
                     Authorization: `Bearer ${ token }`
                 }
@@ -97,7 +97,7 @@ export default function AddBooking(){
                         <label className={ styles["add-booking-form__label"] }>Номер</label>
                         { !room ? <RoomCardsLarge option="select" chooseRoom={ chooseRoom } /> : (
                             <div className={ styles["room-card"] }>
-                                <Image className={ styles["room-card__image"] } src={ `http://localhost:5000/media/${ room.mainImage }` } alt="room image" width={ 504 } height={ 306 } />
+                                <Image className={ styles["room-card__image"] } src={ `https://api.mattloam.ru/media/${ room.mainImage }` } alt="room image" width={ 504 } height={ 306 } />
                                 <div className={ styles["room-card__content"] }>
                                     <p className={ styles["room-card__title"] }>{ room.title }</p>
                                     <p className={ styles["room-card__description"] }>{ room.description }</p>

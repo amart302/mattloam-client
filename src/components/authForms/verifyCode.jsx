@@ -48,7 +48,7 @@ export default function VerifyCode({ showWindow, verifiedEmail, source, openChan
     const sentCode = async () => {
         try {
             const formData = { email: verifiedEmail };
-            await axios.post("http://localhost:5000/auth/sendcode", formData);
+            await axios.post("https://api.mattloam.ru/auth/sendcode", formData);
             setTimeLeft(60);
             setIsActive(true);
         } catch (error) {
@@ -66,7 +66,7 @@ export default function VerifyCode({ showWindow, verifiedEmail, source, openChan
                 email: verifiedEmail, 
                 code: data.code
             };
-            const response = await axios.post("http://localhost:5000/auth/checkingcode", formData);
+            const response = await axios.post("https://api.mattloam.ru/auth/checkingcode", formData);
             
             if(source === "auth"){
                 localStorage.setItem("token", response.data.token);

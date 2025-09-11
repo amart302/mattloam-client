@@ -27,7 +27,7 @@ export default function SignIn({ setSource, showWindow, openSignUpWindow, closeA
     const onSubmitSignIn = async (data) => {
         try {
             setIsLoading(true);
-            const response = await axios.post("http://localhost:5000/auth/signin", data);
+            const response = await axios.post("https://api.mattloam.ru/auth/signin", data);
 
             if(response.data.requiresEmailVerification){
                 setSource("auth");

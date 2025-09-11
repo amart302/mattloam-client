@@ -33,7 +33,7 @@ export default function Rooms(){
 
     const getRoom = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/rooms/${ id }`);
+            const response = await axios.get(`https://api.mattloam.ru/rooms/${ id }`);
             setRoom(response.data.room);
             setBlockedDates(parseDates(response.data.bookings));
         } catch (error) {
@@ -94,7 +94,7 @@ export default function Rooms(){
                         {
                             room?.files.map((item, index) => (
                                 <SwiperSlide key={ index }>
-                                    <Image className={ styles.slide } src={ `http://localhost:5000/media/${item}` } alt="room image" width={ 1200 } height={ 600 } />
+                                    <Image className={ styles.slide } src={ `https://api.mattloam.ru/media/${item}` } alt="room image" width={ 1200 } height={ 600 } />
                                 </SwiperSlide>
                             ))
                         }
@@ -116,7 +116,7 @@ export default function Rooms(){
                         {
                             room?.files.map((item, index) => (
                                 <SwiperSlide key={ index }>
-                                    <Image className={ styles.slide } src={ `http://localhost:5000/media/${item}` } alt="small room image" width={ 294 } height={ 160 } />
+                                    <Image className={ styles.slide } src={ `https://api.mattloam.ru/media/${item}` } alt="small room image" width={ 294 } height={ 160 } />
                                 </SwiperSlide>
                             ))
                         }

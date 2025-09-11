@@ -21,7 +21,7 @@ export default function RoomCards(){
 
     const getRooms = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/rooms");
+            const response = await axios.get("https://api.mattloam.ru/rooms");
             
             setRooms(response.data.rooms.slice(0, 4));
             if(response.data.rooms.length) setShowCards(true);
@@ -50,7 +50,7 @@ export default function RoomCards(){
                         showCards && rooms.map((item, index) => (
                             <Link className={ styles["room-card-link"] } href={ `/rooms/${ item.id }` } key={ index }>
                                 <div className={ styles["room-card"] }>
-                                    <Image className={ styles["room-card__image"] } src={ `http://localhost:5000/media/${ item.mainImage }` } alt="room image" width={ 288 } height={ 182 } />
+                                    <Image className={ styles["room-card__image"] } src={ `https://api.mattloam.ru/media/${ item.mainImage }` } alt="room image" width={ 288 } height={ 182 } />
                                     <div className={ styles["room-card__content"] }>
                                         <p className={ styles["room-card__title"] }>{ item.title }</p>
                                         <div className={ styles["room-card__details"] }>

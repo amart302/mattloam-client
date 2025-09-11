@@ -135,7 +135,7 @@ export default function Addroom(){
             files.forEach(item => formData.append("files", item));
             
             const token = localStorage.getItem("token");
-            const response = await axios.post("http://localhost:5000/rooms", formData, {
+            const response = await axios.post("https://api.mattloam.ru/rooms", formData, {
                 headers: {
                     Authorization: `Bearer ${ token }`
                 }

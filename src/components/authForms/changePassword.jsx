@@ -37,7 +37,7 @@ export default function ChangePassword({ showWindow, verifiedEmail, openSignInWi
                 email: verifiedEmail,
                 password: data.password
             };
-            const response = await axios.post("http://localhost:5000/auth/changepassword", formData);
+            const response = await axios.post("https://api.mattloam.ru/auth/changepassword", formData);
             toast.success(response.data.message);
             openSignInWindow();
         } catch (error) {
