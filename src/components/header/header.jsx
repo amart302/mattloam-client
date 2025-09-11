@@ -97,9 +97,9 @@ export default function Header(){
                         {
                             isLoading ? <Skeleton width={ 80 } height={ 22 } borderRadius={ 4 } baseColor="rgba(0, 0, 0, 0.1)" /> :
                             (
-                                isAuth ? <Link className={styles.header__link} href="/profile">Профиль</Link> :
-                                isAdmin ? <Link className={styles.header__link} href="/admin/bookings">Админ-панель</Link> :
-                                <button className={styles.header__link} onClick={() => openSignInWindow()}>Войти</button>
+                                isAuth ? <Link className={ styles.header__link } href="/profile">Профиль</Link> :
+                                isAdmin ? <Link className={ styles.header__link } href="/admin/bookings">Админ-панель</Link> :
+                                <button className={ styles.header__link } onClick={() => openSignInWindow()}>Войти</button>
                             )
                         }
                     </nav>
@@ -127,9 +127,12 @@ export default function Header(){
                     {
                         isLoading ? <Skeleton width={ 80 } height={ 22 } borderRadius={ 4 } baseColor="rgba(0, 0, 0, 0.1)" /> :
                         (
-                            isAuth ? <Link className={styles.header__link} href="/profile">Профиль</Link> :
-                            isAdmin ? <Link className={styles.header__link} href="/admin/bookings">Админ-панель</Link> :
-                            <button className={styles.header__link} onClick={() => openSignInWindow()}>Войти</button>
+                            isAuth ? <Link className={ styles.header__link } href="/profile" onClick={() => toggleMenu() }>Профиль</Link> :
+                            isAdmin ? <Link className={ styles.header__link } href="/admin/bookings" onClick={() => toggleMenu() }>Админ-панель</Link> :
+                            <button className={ styles.header__link } onClick={() => {
+                                toggleMenu();
+                                openSignInWindow();
+                            }}>Войти</button>
                         )
                     }
                 </div>
