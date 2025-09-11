@@ -86,8 +86,8 @@ export default function Addroom(){
                 return;
             }
 
-            if (item.size > 100 * 1024 * 1024) {
-                setError("files", { message: "Файл слишком большой (макс. 100мб)" });
+            if(item.size > 5 * 1024 * 1024){
+                setError("files", { message: "Файл слишком большой (макс. 5v,)" });
                 return;
             }
 
