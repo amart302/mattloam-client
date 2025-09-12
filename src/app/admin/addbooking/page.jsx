@@ -6,31 +6,29 @@ import errorHandler from "@/utils/errorHandler";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { FaUserFriends, FaBed } from "react-icons/fa";
 import RoomCardsLarge from "@/components/roomCards/roomCardLarge";
 import { toast } from "sonner";
-import RenderIcon from "@/components/renderIcon/renderIcon";
 import Loader from "@/components/loader/loader";
 
 export default function AddBooking(){
     const router = useRouter();
     const { register, handleSubmit, setError, clearErrors, formState: { errors }} = useForm();
-    const [ room, setRoom ] = useState(null);
+    const [ roomId, setRoomId ] = useState(null);
     const [ isLoading, setIsLoading ] = useState(false);
 
-    useEffect(() => { register("room") }, []);
+    useEffect(() => { register("roomId") }, []);
 
-    const chooseRoom = (event, room) => {
+    const chooseRoom = (event, id) => {
         event.preventDefault();
-        setRoom(room);
+        setRoomId(id);
+        clearErrors("roomId");
     };
 
     const onSubmitAddBooking = async (data) => {
-        if(!room){
-            setError("room", { message: "Выберите номер" });
+        if(!roomId){
+            setError("roomId", { message: "Выберите номер" });
             return;
-        }else clearErrors("room");
+        }
 
         try {
             setIsLoading(true);
@@ -41,7 +39,7 @@ export default function AddBooking(){
                 adults: data.adults,
                 children: data.children,
                 phoneNumber: data.phoneNumber,
-                roomId: room.id
+                roomId
             };
             
             const token = localStorage.getItem("token");
@@ -95,37 +93,9 @@ export default function AddBooking(){
                 </div>
                 <div className={ styles["add-booking-form__form-group"] }>
                         <label className={ styles["add-booking-form__label"] }>Номер</label>
-                        { !room ? <RoomCardsLarge option="select" chooseRoom={ chooseRoom } /> : (
-                            <div className={ styles["room-card"] }>
-                                <Image className={ styles["room-card__image"] } src={ `https://api.mattloam.ru/media/${ room.mainImage }` } alt="room image" width={ 504 } height={ 306 } />
-                                <div className={ styles["room-card__content"] }>
-                                    <p className={ styles["room-card__title"] }>{ room.title }</p>
-                                    <p className={ styles["room-card__description"] }>{ room.description }</p>
-                                    <div className={ styles["room-card__details"] }>
-                                        <div className={ `${ styles["room-card__detail"] } ${ styles["room-card__text"] }` }>
-                                            <FaUserFriends color="#F99001" size={ 20 } />
-                                            { room.guests }
-                                        </div>
-                                        <div className={ `${ styles["room-card__detail"] } ${ styles["room-card__text"] }` }>
-                                            <FaBed color="#F99001" size={ 20 } />
-                                            { room.beds }                                                
-                                        </div>
-                                    </div>
-                                    <div className={ styles["room-card__details"] }>
-                                        {
-                                            room?.services.slice(0, 4).map((service, index) => (
-                                                <div className={ styles["room-card__detail"] } key={ index }>
-                                                    <RenderIcon service={ service } />
-                                                    <span className={ styles["room-card__text"] }>{ service }</span>
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        ) }
+                        <RoomCardsLarge option="select" roomId={ roomId } chooseRoom={ chooseRoom } />
                 </div>
-                { errors.room && <p className={ styles["error-message"] }>{ errors.room.message }</p> }
+                { errors.roomId && <p className={ styles["error-message"] }>{ errors.roomId.message }</p> }
                 <button className={ styles["add-booking-form__submit-button"] } type="submit">
                     { isLoading ? <Loader width={ 20 } height={ 20 } /> : "Добавить бронь" }
                 </button>

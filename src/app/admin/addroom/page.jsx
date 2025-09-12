@@ -80,14 +80,21 @@ export default function Addroom(){
         const newFiles = [];
         const newFilesPreviews = [];
 
+        const totalFilesAfterUpload = files.length + input.files.length;
+        if(totalFilesAfterUpload > 5){
+            setError("files", { message: "Максимальное количество файлов: 5" });
+            input.value = "";
+            return;
+        }
+
         for(let item of input.files){
             if(!item.type.startsWith("image/")){
                 setError("files", { message: "Разрешены только изображения" });
                 return;
             }
 
-            if(item.size > 5 * 1024 * 1024){
-                setError("files", { message: "Файл слишком большой (макс. 5v,)" });
+            if(item.size > 10 * 1024 * 1024){
+                setError("files", { message: "Файл слишком большой (макс. 10мб)" });
                 return;
             }
 
@@ -157,7 +164,7 @@ export default function Addroom(){
             <form className={ styles["add-room-form"] } encType="multipart/form-data" onSubmit={ handleSubmit(onSubmitAddRoom) }>
                 <div className={ styles["add-room-form__form-group"] }>
                     <label className={ styles["add-room-form__label"] }>Название</label>
-                    <input className={ styles["add-room-form__input"] } type="text" placeholder="2-х комнатный номер" {...register("title", { required: "Это поле обязательно для заполнения", maxLength: { value: 255, message: "Название не должно превышать 255 символов" } })} />
+                    <input className={ styles["add-room-form__input"] } type="text" placeholder="2-х комнатный номер" {...register("title", { required: "Это поле обязательно для заполнения", maxLength: { value: 100, message: "Название не должно превышать 100 символов" } })} />
                     { errors.title && <p className={ styles["error-message"] }>{ errors.title.message }</p> }
                 </div>
                 <div className={ styles["add-room-form__form-group"] }>

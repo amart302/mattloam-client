@@ -8,9 +8,8 @@
     }
 
     &__inner{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 20px;
     }
 
@@ -62,4 +61,12 @@
 }
 .telegram-image-container{
     background: linear-gradient(180deg, #2AABEE 0%, #229ED9 99.21%);
+}
+
+@media (max-width: 768px) {
+    .contacts{
+        &__inner{
+            // flex-direction: column;
+        }
+    }
 }

@@ -106,14 +106,21 @@ export default function EditRoom(){
         const newFiles = [];
         const newFilesPreviews = [];
 
+        const totalFilesAfterUpload = files.length + input.files.length;
+        if(totalFilesAfterUpload > 5){
+            setError("files", { message: "Максимальное количество файлов: 5" });
+            input.value = "";
+            return;
+        }
+
         for(let item of input.files){
             if(!item.type.startsWith("image/")){
                 setError("files", { message: "Разрешены только изображения" });
                 return;
             }
 
-            if(item.size > 5 * 1024 * 1024){
-                setError("files", { message: "Файл слишком большой (макс. 5v,)" });
+            if(item.size > 10 * 1024 * 1024){
+                setError("files", { message: "Файл слишком большой (макс. 10мб)" });
                 return;
             }
 
@@ -150,6 +157,7 @@ export default function EditRoom(){
         if(!services.length || !pricing.length){
             if(!services.length) setError("services", { message: "Добавьте удобства" });
             if(!pricing.length) setError("dateFrom", { message: "Добавьте цены" });
+            if(!existingFiles.length && !files.length) setError("files", { message: "Добавьте изображения" });
             return;
         }
 
@@ -196,7 +204,7 @@ export default function EditRoom(){
                 </div>
                 <div className={ styles["edit-room-form__form-group"] }>
                     <label className={ styles["edit-room-form__label"] }>Описание</label>
-                    <textarea className={ styles["edit-room-form__textarea"] } rows="4" placeholder="Добавьте описание номера" {...register("description", { required: "Это поле обязательно для заполнения", maxLength: { value: 1000, message: "Описание не должно превышать 1000 символов" } })}></textarea>
+                    <textarea className={ styles["edit-room-form__textarea"] } rows="4" placeholder="Добавьте описание номера" {...register("description", { required: "Это поле обязательно для заполнения", maxLength: { value: 500, message: "Описание не должно превышать 500 символов" } })}></textarea>
                     { errors.description && <p className={ styles["error-message"] }>{ errors.description.message }</p> }
                 </div>
                 <div className={ styles["edit-room-form__form-row"] }>

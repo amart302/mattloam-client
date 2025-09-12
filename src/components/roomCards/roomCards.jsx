@@ -32,22 +32,29 @@ export default function RoomCards(){
 
     const goToRoomsPage = () => router.push("/rooms");
 
+    if(!showCards){
+        return (
+            <div className={ styles["room-cards"] }>
+                {
+                    !showCards && [ ...Array(4) ].map((_, index) => (
+                        <div className={ styles["room-card-skeleton"] } key={ index }>
+                            <Skeleton height={ 180 } borderRadius={ 8 } />
+                            <div className={ styles["room-card-skeleton__content"] }>
+                                <Skeleton height={ 24 } borderRadius={ 4 } />
+                                <Skeleton height={ 18 } width="60%" borderRadius={ 4 } />
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        );
+    }
+    
     return(
         <>
                 <div className={ styles["room-cards"] }>
                     {
-                        !showCards && [ ...Array(4) ].map((_, index) => (
-                            <div className={ styles["room-card-skeleton"] } key={ index }>
-                                <Skeleton height={ 180 } borderRadius={ 8 } />
-                                <div className={ styles["room-card-skeleton__content"] }>
-                                    <Skeleton height={ 24 } borderRadius={ 4 } />
-                                    <Skeleton height={ 18 } width="60%" borderRadius={ 4 } />
-                                </div>
-                            </div>
-                        ))
-                    }
-                    {
-                        showCards && rooms.map((item, index) => (
+                        rooms.map((item, index) => (
                             <Link className={ styles["room-card-link"] } href={ `/rooms/${ item.id }` } key={ index }>
                                 <div className={ styles["room-card"] }>
                                     <Image className={ styles["room-card__image"] } src={ `https://api.mattloam.ru/media/${ item.mainImage }` } alt="room image" width={ 288 } height={ 182 } />
@@ -72,7 +79,7 @@ export default function RoomCards(){
                         ))
                     }
                 </div>
-                { showCards && <button className={ styles["rooms__show-more-button"] } onClick={ () => goToRoomsPage() }>Показать больше</button> }
+                <button className={ styles["rooms__show-more-button"] } onClick={ () => goToRoomsPage() }>Показать больше</button>
         </>
     );
 }

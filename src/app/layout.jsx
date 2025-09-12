@@ -13,13 +13,30 @@ export const metadata = {
   title: "Отель Маьт Лоам в Горной Ингушетии - Отдых у подножия гор",
   description: "Отель Маьт Лоам в Горной Ингушетии. Уединенный отдых, панорамные виды, современный комфорт. Идеально для ценителей природы и культуры Кавказа. Забронируйте сейчас.",
   keywords: "отель Ингушетия, гостиница Горная Ингушетия, отель Маьт Лоам, забронировать отель, отдых в горах, Кавказ, туризм, Джейрах, джейрахское ущелье",
+  openGraph: {
+    title: "Отель Маьт Лоам в Горной Ингушетии - Отдых у подножия гор",
+    description: "Уединенный отдых, панорамные виды, современный комфорт. Идеально для ценителей природы и культуры Кавказа",
+    url: "https://mattloam.ru",
+    siteName: "Отель Маьт Лоам",
+    images: [
+      {
+        url: "https://www.mattloam.ru/assets/images/mainImage.jpeg",
+        width: 1648,
+        height: 928,
+        alt: "Отель Маьт Лоам - панорамный вид на горы Ингушетии",
+      },
+    ],
+    locale: "ru_RU",
+    type: "website",
+    tags: [ "отель", "отдых", "горы", "Ингушетия", "Кавказ", "туризм", "Джейрах", "джейрахское ущелье" ]
+  },
   category: "travel",
   icons: {
     icon: [
       { url: "/assets/favicon/favicon.ico", sizes: "any" },
       { url: "/assets/favicon/icon1.png", sizes: "32x32", type: "image/png" },
       { url: "/assets/favicon/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/assets/favicon/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/assets/favicon/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" }
     ],
     apple: [
       { url: "/assets/favicon/apple-icon.png", sizes: "180x180", type: "image/png" },
@@ -29,7 +46,7 @@ export const metadata = {
   manifest: "/assets/favicon/manifest.json",
   appleWebApp: {
     title: "Maьт Лоам",
-    statusBarStyle: "black-translucent",
+    statusBarStyle: "black-translucent"
   },
   robots: {
     index: true,
@@ -38,13 +55,16 @@ export const metadata = {
       index: true,
       follow: true,
       "max-image-preview": "large",
-      "max-snippet": -1,
+      "max-snippet": -1
     },
   },
   verification: {
     google: "ваш_google_verification_key",
-    yandex: "ваш_yandex_verification_key",
+    yandex: "ваш_yandex_verification_key"
   },
+  alternates: {
+    canonical: "https://mattloam.ru"
+  }
 };
 
 export const viewport = {

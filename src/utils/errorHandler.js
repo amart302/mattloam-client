@@ -4,6 +4,7 @@ export default function errorHandler(error){
     if(error.response){
         const { data } = error.response;
         if(data.errors && data.errors.length > 0) toast.error(data.errors[0].msg);
+        else if(data.message && data.type === "warning") toast.warning(data.message);
         else if(data.message) toast.error(data.message);
         else toast.error("Произошла ошибка на сервере");
     }

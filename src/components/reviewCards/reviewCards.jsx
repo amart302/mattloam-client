@@ -30,7 +30,7 @@ export default function reviewsCards(){
         {
             avatar: "https://avatars.mds.yandex.net/get-yapic/29310/6EyhangKVEgJsl4mgnQNefR7h0-1/islands-retina-50",
             username: "Ахмед",
-            text: "Всегда можно снять недорогой номер,рекомендую для больших компаний которые хотят отдохнуть на природе с удобством. Есть все для этого.",
+            text: "Всегда можно снять недорогой номер — идеально для больших компаний, которые хотят отдохнуть на природе со всеми удобствами. Здесь есть всё необходимое для комфортного отдыха.",
             stars: 5
         },
         {
@@ -62,7 +62,7 @@ export default function reviewsCards(){
                         }}
                         modules={[ Pagination ]}
                         breakpoints={{
-                            600: {
+                            700: {
                                 slidesPerView: 3,
                             },
                         }}

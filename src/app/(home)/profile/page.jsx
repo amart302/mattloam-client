@@ -38,7 +38,6 @@ export default function Profile() {
       setUser(response.data.user);
     } catch (error) {
       console.error(error);
-      errorHandler(error);
       router.replace("/");
     }
   };
@@ -83,8 +82,7 @@ export default function Profile() {
 
   const logOut = () => {
     localStorage.clear();
-    router.replace("/");
-    setTimeout(() => window.location.reload(), 300);
+    window.location.reload();
   };
 
   if(!user){

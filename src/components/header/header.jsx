@@ -63,7 +63,7 @@ export default function Header(){
             
             setIsAuth(true);
         } catch (error) {
-            console.log(error);
+            console.error(error);
         } finally {
             setIsLoading(false);
         }
@@ -95,17 +95,17 @@ export default function Header(){
                         <Link className={ styles.header__link } href={{ pathname: "/", hash: "reviews" }}>Отзывы</Link>
                         <Link className={ styles.header__link } href={{ pathname: "/", hash: "contacts" }}>Контакты</Link>
                         {
-                            isLoading ? <Skeleton width={ 80 } height={ 22 } borderRadius={ 4 } baseColor="rgba(0, 0, 0, 0.1)" /> :
+                            isLoading ? <Skeleton width={ 60 } height={ 22 } borderRadius={ 4 } baseColor="rgba(0, 0, 0, 0.1)" /> :
                             (
                                 isAuth ? <Link className={ styles.header__link } href="/profile">Профиль</Link> :
-                                isAdmin ? <Link className={ styles.header__link } href="/admin/bookings">Админ-панель</Link> :
-                                <button className={ styles.header__link } onClick={() => openSignInWindow()}>Войти</button>
+                                isAdmin ? <Link className={ styles.header__link } href="/admin/bookings">Админ</Link> :
+                                <button className={ styles.header__link } onClick={ () => openSignInWindow()}>Войти</button>
                             )
                         }
                     </nav>
                     <button 
-                        className={ `${ styles.header__burger } ${isMenuOpen ? styles["header__burger--active"] : ""}` }
-                        onClick={() => toggleMenu() }
+                        className={ `${ styles.header__burger } ${ isMenuOpen ? styles["header__burger--active"] : "" }` }
+                        onClick={ () => toggleMenu() }
                         aria-label={ isMenuOpen ? "Закрыть меню" : "Открыть меню" }
                     >
                         <span className={ styles.burger__line }></span>
@@ -114,22 +114,17 @@ export default function Header(){
                     </button>
                 </div>
                 
-                <div className={`${ styles["header__mobile-menu"] } ${isMenuOpen ? styles["header__mobile-menu--active"] : ""}`}>
-                    <Link className={ styles.header__link } href="/" onClick={() => toggleMenu() }>Главная</Link>
-                    <Link className={ styles.header__link } href="/rooms" onClick={() => toggleMenu() }>Номера</Link>
-                    <Link className={ styles.header__link } href={{ pathname: "/", hash: "reviews" }} onClick={() => {
-                        setTimeout(() => hideHeader(), 900);
-                    }}>Отзывы</Link>
-                    <Link className={ styles.header__link } href={{ pathname: "/", hash: "contacts" }} onClick={() => {
-                        toggleMenu();
-                        setTimeout(() => hideHeader(), 900);
-                    }}>Контакты</Link>
+                <div className={`${ styles["header__mobile-menu"] } ${ isMenuOpen ? styles["header__mobile-menu--active"] : "" }`}>
+                    <Link className={ styles.header__link } href="/" onClick={ () => toggleMenu() }>Главная</Link>
+                    <Link className={ styles.header__link } href="/rooms" onClick={ () => toggleMenu() }>Номера</Link>
+                    <Link className={ styles.header__link } href={{ pathname: "/", hash: "reviews" }} onClick={ () => toggleMenu() }>Отзывы</Link>
+                    <Link className={ styles.header__link } href={{ pathname: "/", hash: "contacts" }} onClick={ () => toggleMenu() }>Контакты</Link>
                     {
-                        isLoading ? <Skeleton width={ 80 } height={ 22 } borderRadius={ 4 } baseColor="rgba(0, 0, 0, 0.1)" /> :
+                        isLoading ? <Skeleton width={ 60 } height={ 22 } borderRadius={ 4 } baseColor="rgba(0, 0, 0, 0.1)" /> :
                         (
-                            isAuth ? <Link className={ styles.header__link } href="/profile" onClick={() => toggleMenu() }>Профиль</Link> :
-                            isAdmin ? <Link className={ styles.header__link } href="/admin/bookings" onClick={() => toggleMenu() }>Админ-панель</Link> :
-                            <button className={ styles.header__link } onClick={() => {
+                            isAuth ? <Link className={ styles.header__link } href="/profile" onClick={ () => toggleMenu() }>Профиль</Link> :
+                            isAdmin ? <Link className={ styles.header__link } href="/admin/bookings" onClick={ () => toggleMenu() }>Админ-панель</Link> :
+                            <button className={ styles.header__link } onClick={ () => {
                                 toggleMenu();
                                 openSignInWindow();
                             }}>Войти</button>
