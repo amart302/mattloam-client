@@ -59,8 +59,8 @@ export const metadata = {
     },
   },
   verification: {
-    google: "ваш_google_verification_key",
-    yandex: "ваш_yandex_verification_key"
+    google: "rNWsL6RE1Yl80ZauoiHLbXN1Q-AwnqQCoMFh3c7neqw",
+    yandex: "16ebdaca93c6135b"
   },
   alternates: {
     canonical: "https://mattloam.ru"
