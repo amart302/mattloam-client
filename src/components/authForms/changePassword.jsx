@@ -58,9 +58,9 @@ export default function ChangePassword({ showWindow, verifiedEmail, openSignInWi
                 <p className={ styles["auth-form__text"] }>Используйте буквы, цифры и спецсимволы для надежности</p>
                 <div className={ styles["auth-form__group"] }>
                     <input className={ styles["auth-form__input"] } type="password" placeholder="Пароль" {...register("password", { required: "Это поле обязательно для заполнения", minLength: { value: 6, message: "Минимальная длина 6 символов" }, maxLength: { value: 255, message: "Слишком длинный пароль" } })} />
-                    { errors.password && <p className="error-message">{ errors.password.message }</p> }
+                    { errors.password && <p className={ styles["error-message"] }>{ errors.password.message }</p> }
                     <input className={ styles["auth-form__input"] } type="password" placeholder="Подтвердите пароль" {...register("confirmPassword", { required: "Это поле обязательно для заполнения", minLength: { value: 6, message: "Минимальная длина 6 символов" }, maxLength: { value: 255, message: "Слишком длинный пароль" } })} />
-                    { errors.confirmPassword && <p className="error-message">{ errors.confirmPassword.message }</p> }
+                    { errors.confirmPassword && <p className={ styles["error-message"] }>{ errors.confirmPassword.message }</p> }
                 </div>
                 <button className={ styles["auth-form__button"] }>
                     { isLoading ? <Loader width={ 20 } height={ 20 } /> : "Сохранить пароль" }
