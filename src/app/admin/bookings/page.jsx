@@ -125,11 +125,16 @@ export default function Bookings(){
                                         <Link className={ styles["booking-card__room-title"] } href={ `/rooms/${ item.roomId }` }>{ item.Room.title }</Link>
                                         <span className={ styles["booking-card__text"] }>{ formatDate(item.dateOfEntry, item.departureDate) }</span>
                                     </div>
-                                    {
-                                        item.phoneNumber ?
-                                        <span className={ styles["booking-card__text"] }>{ item.phoneNumber }</span> :
-                                        <span className={ styles["booking-card__text"] }>{ item.User.phoneNumber }</span>
-                                    }
+                                    <div className={ styles["booking-card__content-wrapper"] }>
+                                        {
+                                            item.phoneNumber ?
+                                            <span className={ styles["booking-card__text"] }>{ item.phoneNumber }</span> :
+                                            <>
+                                                <span className={ styles["booking-card__text"] }>{ item.User.email }</span>
+                                                <span className={ styles["booking-card__text"] }>{ item.User.phoneNumber }</span>
+                                            </>
+                                        }
+                                    </div>
                                     {
                                         item.status === "active" ?
                                         <div className={ `${ styles["booking-card__status"] } ${ styles["booking-card__status--active"] }` }>Активна</div> :
