@@ -1,47 +1,13 @@
 "use client";
 
 import styles from "./adminSidebar.module.scss";
-import axios from "axios";
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { FaCalendar, FaBed, FaCalendarPlus  } from "react-icons/fa";
 import { FaCirclePlus } from "react-icons/fa6";
 import Link from "next/link";
-import Loader from "../loader/loader";
 
 export default function AdminSidebar(){
     const router = useRouter();
-    const [ isLoading, setIsLoading ] = useState(true);
-
-    useEffect(() => {
-        checkAdmin();
-    }, []);
-
-    const checkAdmin = async () => {
-        try {
-            const token = localStorage.getItem("token");
-            if(!token){
-                router.replace("/");
-                return;
-            }
-
-            const response = await axios.get("https://api.mattloam.ru/auth/check", {
-                headers: {
-                    Authorization: `Bearer ${ token }`
-                }
-            });
-            
-            if(response.data.user.role !== "admin"){
-                router.replace("/");
-                return;
-            }
-
-            setIsLoading(false);
-        } catch (error) {
-            console.error(error);
-            router.replace("/");
-        }
-    }
 
     const goToMainPage = () => router.replace("/");
 
@@ -49,14 +15,6 @@ export default function AdminSidebar(){
         localStorage.clear();
         goToMainPage();
     };
-
-    if(isLoading){
-        return (
-            <div className="loader-parent">
-                <Loader width={ 48 } height={ 48 } />
-            </div>
-        );
-    }
 
     return(
         <aside className={ styles.sidebar }>

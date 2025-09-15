@@ -1,5 +1,4 @@
-import styles from "./layout.module.scss";
-import AdminSidebar from "@/components/adminSidebar/adminSidebar";
+import AdminChecker from "@/components/adminChecker/adminChecker";
 
 export const metadata = {
   title: "Панель управления",
@@ -18,13 +17,5 @@ export const metadata = {
 };
 
 export default function AdminLayout({ children }){
-
-  return (
-    <div className={ styles.layout }>
-        <AdminSidebar />
-        <main className={ styles.main }>
-          { children }
-        </main>
-    </div>
-  );
+  return <AdminChecker>{ children }</AdminChecker>;
 }
