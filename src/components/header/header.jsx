@@ -13,6 +13,7 @@ import SignUp from "../authForms/signUp";
 import EmailRequest from "../authForms/emailRequest";
 import VerifyCode from "../authForms/verifyCode";
 import ChangePassword from "../authForms/changePassword";
+import { toast } from "sonner";
 
 export default function Header(){
     const [ showWindow, setShowWindow ] = useState(null);
@@ -28,6 +29,7 @@ export default function Header(){
     const isHomePage = pathname === "/";
 
     useEffect(() => {
+        toast("asdasd")
         checkAuth();
     }, []);
 
@@ -68,8 +70,6 @@ export default function Header(){
             setIsLoading(false);
         }
     };
-
-    const hideHeader = () => setVisible(false);
 
     const openSignInWindow = () => setShowWindow("signin");
     const openSignUpWindow = () => setShowWindow("signup");
