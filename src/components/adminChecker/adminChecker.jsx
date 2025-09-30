@@ -52,9 +52,11 @@ export default function AdminChecker({ children }){
     return (
         <div className={ styles.layout }>
             <AdminSidebar />
-            <main className={ styles.main }>
-                { children }
-            </main>
+            <div className="wrapper">
+                <main className={ styles.main }>
+                    { children }
+                </main>
+            </div>
         </div>
     );
 }
