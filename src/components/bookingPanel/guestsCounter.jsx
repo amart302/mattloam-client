@@ -1,9 +1,13 @@
 import styles from "./bookingPanel.module.scss";
+import { RxCross1 } from "react-icons/rx";
 
-export default function GuestCounter({ counterRef, adults, children, decrementAdults, incrementAdults, decrementChildren, incrementChildren, setShowCounter }){
+export default function GuestCounter({ counterRef, closeGuestsCounter, adults, children, decrementAdults, incrementAdults, decrementChildren, incrementChildren, setShowCounter }){
     return(
         <div className="parent-modal-window">
             <div className={ styles["guest-counter"] } ref={ counterRef }>
+                <div className={ styles["guest-counter__close-button"] } onClick={ () => closeGuestsCounter() }>
+                    <RxCross1 size={ 26 } color="#216ba5" />
+                </div>
                 <span className={ styles["guest-counter__title"] }>Количество гостей</span>
                 <hr className={ styles["guest-counter__divider"] } />
                 <div className={ styles["guest-counter__inner"] }>

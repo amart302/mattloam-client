@@ -26,7 +26,7 @@ export default function BookingPanel({ roomId = null, option, blockedDates = nul
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (counterRef.current && !counterRef.current.contains(event.target)) {
-                setShowCounter(false);
+                closeGuestsCounter();
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
@@ -61,6 +61,8 @@ export default function BookingPanel({ roomId = null, option, blockedDates = nul
     const findRoom = () => {
         router.push(`/rooms/find?dateOfEntry=${ format(dateOfEntry, "yyyy-MM-dd") }&departureDate=${ format(departureDate, "yyyy-MM-dd") }&adults=${ adults }&children=${ children }`);
     };
+
+    const closeGuestsCounter = () => setShowCounter(false);
 
     const booking = async () => {
         try {
@@ -140,6 +142,7 @@ export default function BookingPanel({ roomId = null, option, blockedDates = nul
                             {
                                 showCounter && <GuestCounter
                                     counterRef={ counterRef }
+                                    closeGuestsCounter={ closeGuestsCounter }
                                     adults={ adults }
                                     children={ children }
                                     decrementAdults={ decrementAdults }

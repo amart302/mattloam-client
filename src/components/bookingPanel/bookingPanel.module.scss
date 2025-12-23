@@ -109,6 +109,7 @@
 }
 
 .guest-counter{
+    position: relative;
     max-width: 385px;
     width: 100%;
     height: 200px;
@@ -118,7 +119,7 @@
     gap: 10px;
     background-color: #ffffff;
     box-shadow: var(--primary-box-shadow);
-    padding: 16px;
+    padding: 30px;
     border-radius: 6px;
 
     &__title{
@@ -192,6 +193,18 @@
         background-color: #216ba5;
         color: #ffffff;
         border-radius: 2px;
+        transition: opacity 0.2s;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+
+    &__close-button{
+        position: absolute;
+        top: 16px;
+        right: 16px;
         cursor: pointer;
     }
 }
@@ -199,5 +212,12 @@
 @media (max-width: 1440px) {
     .booking-panel{
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px){
+    .guest-counter{
+        width: 100%;
+        padding: 20px;
     }
 }
